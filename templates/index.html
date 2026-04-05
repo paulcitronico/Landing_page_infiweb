@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>INFIWEB SPA | Innovación digital a tu alcance</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Botón flotante de volver arriba -->
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- NAVBAR (MODERNO) -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="INFIWEB Logo" class="logo-img">
+                <h2>INFIWEB</h2>
+                <span class="logo-dot">SPA</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#desafios" class="nav-link">Desafíos</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">INFIWEB <span>SPA</span></h1>
+            <p class="hero-subtitle">Transformamos ideas en soluciones digitales de alto impacto</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github"></i> Ver proyectos
+                </a>
+                <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Desliza</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- CLIENTES / TRUST SECTION -->
+    <div class="trust-bar">
+        <div class="trust-container">
+            <span class="trust-text">Empresas que confían en nosotros</span>
+            <div class="trust-logos">
+                <i class="fab fa-microsoft"></i>
+                <i class="fab fa-google"></i>
+                <i class="fab fa-amazon"></i>
+                <i class="fab fa-salesforce"></i>
+                <i class="fab fa-sap"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Lo que hacemos</span>
+                <h2>Servicios Profesionales</h2>
+                <p>Soluciones a medida para llevar tu negocio al siguiente nivel digital</p>
+            </div>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Desarrollo Web a Medida</h3>
+                    <p>Sistemas web escalables, rápidos y seguros adaptados a tus necesidades.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Transformación Digital</h3>
+                    <p>Automatización de procesos y migración a entornos digitales modernos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Integraciones API</h3>
+                    <p>Conexión de sistemas, ERP, CRM y plataformas externas sin fricción.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+                    <h3>Consultoría IT</h3>
+                    <p>Asesoramiento estratégico para maximizar tu inversión tecnológica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSOTROS (QUIÉNES SOMOS) -->
+    <section id="nosotros" class="section dark">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag light-tag">Innovación & Excelencia</span>
+                    <h2>Quiénes Somos</h2>
+                    <p>En <strong>INFIWEB SPA</strong> desarrollamos soluciones digitales modernas enfocadas en la eficiencia, automatización y crecimiento empresarial. Nos especializamos en sistemas web a medida, integraciones y herramientas de gestión.</p>
+                    <p>Nuestro equipo combina pasión por la tecnología y experiencia en múltiples industrias para entregar productos que realmente transforman negocios.</p>
+                    <div class="about-stats">
+                        <div><span class="stat-number" data-target="12">0</span>+ <br>Proyectos exitosos</div>
+                        <div><span class="stat-number" data-target="118">0</span>+ <br>Clientes satisfechos</div>
+                        <div><span class="stat-number" data-target="2">0</span>+ <br>Años de experiencia</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="{{ url_for('static', filename='img/team.jpeg') }}" alt="Equipo INFIWEB">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROYECTOS DESTACADOS -->
+    <section id="proyectos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Portafolio</span>
+                <h2>Proyectos Recientes</h2>
+                <p>Conoce algunas de nuestras soluciones implementadas con éxito</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-store"></i></div>
+                    <h3>E-commerce Analytics</h3>
+                    <p>Plataforma de análisis para tiendas online con dashboards en tiempo real.</p>
+                    <a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank" class="project-link">Ver en GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-tasks"></i></div>
+                    <h3>Sistema de Gestión</h3>
+                    <p>ERP modular para pymes, incluye inventario, facturación y CRM.</p>
+                    <a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank" class="project-link">Ver en GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-robot"></i></div>
+                    <h3>Automatización RPA</h3>
+                    <p>Bot para automatizar tareas repetitivas en procesos administrativos.</p>
+                    <a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank" class="project-link">Ver en GitHub <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ESTADÍSTICAS (animadas) -->
+    <div class="stats-banner">
+        <div class="stats-container">
+            <div class="stat-item">
+                <i class="fas fa-code"></i>
+                <div><span class="stat-number" data-target="120">0</span>k+</div>
+                <p>Líneas de código</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-coffee"></i>
+                <div><span class="stat-number" data-target="3500">0</span>+</div>
+                <p>Horas de desarrollo</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-globe"></i>
+                <div><span class="stat-number" data-target="2">0</span></div>
+                <p>Países alcanzados</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIOS -->
+    <section class="section dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag light-tag">Testimonios</span>
+                <h2>Lo que dicen nuestros clientes</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"INFIWEB transformó por completo nuestra operación. El sistema de gestión que desarrollaron aumentó nuestra eficiencia en un 40%."</p>
+                    <h4>María González</h4>
+                    <span>CEO, TechSolutions</span>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"Excelente calidad técnica y atención personalizada. Siempre disponibles para resolver cualquier duda."</p>
+                    <h4>Carlos Méndez</h4>
+                    <span>Director de Innovación</span>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <p>"La automatización que implementaron nos ahorra decenas de horas al mes. Totalmente recomendados."</p>
+                    <h4>Valentina Rojas</h4>
+                    <span>Gerente de Operaciones</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESAFÍOS (sección original mejorada) -->
+    <section id="desafios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Compromiso</span>
+                <h2>Nuestros Grandes Desafíos</h2>
+                <p>Proyectos que nos motivan a seguir innovando</p>
+            </div>
+            <div class="cards-grid">
+                <div class="challenge-card">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3>Transformación Digital</h3>
+                    <p>Ayudar a empresas tradicionales a migrar hacia soluciones digitales modernas.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-diagram-project"></i>
+                    <h3>Sistemas Escalables</h3>
+                    <p>Crear plataformas capaces de crecer junto al negocio sin perder rendimiento.</p>
+                </div>
+                <div class="challenge-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Automatización Inteligente</h3>
+                    <p>Reducir procesos manuales mediante tecnología eficiente y machine learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section dark contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag light-tag">Ponte en contacto</span>
+                    <h2>Hablemos de tu proyecto</h2>
+                    <p>¿Tienes una idea? Escríbenos y te asesoraremos sin compromiso.</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> infiwebspa.contactanos@gmail.com</li>
+                        <li><i class="fas fa-phone-alt"></i> +569 20368688</li>
+                        <li><i class="fab fa-github"></i> github.com/orgs/Infiweb-SpA</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar mensaje <i class="fas fa-paper-plane"></i></button>
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>INFIWEB SPA</h3>
+                <p>Innovación digital a tu alcance. Creamos tecnología que impulsa resultados.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="https://github.com/orgs/Infiweb-SpA/repositories" target="_blank">GitHub</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos de servicio</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <div class="newsletter">
+                    <input type="email" placeholder="Tu correo electrónico">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 INFIWEB SPA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
