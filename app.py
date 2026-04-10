@@ -1,19 +1,17 @@
 import os
+import threading
 from flask import Flask, render_template, request, jsonify
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
 
-# 🔐 CONFIGURACIÓN GMAIL (Railway ENV)
+# CONFIG GMAIL
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
-
-# 🔥 IMPORTANTE → evita que se quede pegado
 app.config['MAIL_TIMEOUT'] = 10
 
 mail = Mail(app)
@@ -22,55 +20,50 @@ mail = Mail(app)
 def home():
     return render_template('index.html')
 
+# 🔥 FUNCIÓN QUE ENVÍA EL CORREO EN SEGUNDO PLANO
+def send_email_async(app, msg):
+    with app.app_context():
+        try:
+            print("📧 Enviando correo en background...")
+            mail.send(msg)
+            print("✅ Correo enviado")
+        except Exception as e:
+            print(f"❌ Error enviando correo: {e}")
+
 @app.route('/contact', methods=['POST'])
 def contact():
-    print("🔥 Request recibido")
-
     data = request.get_json()
 
     if not data:
-        return jsonify({"success": False, "message": "No hay datos"}), 400
+        return jsonify({"success": False}), 400
 
     name = data.get('name')
     email = data.get('email')
     message_content = data.get('message')
 
     if not name or not email or not message_content:
-        return jsonify({"success": False, "message": "Faltan datos"}), 400
+        return jsonify({"success": False}), 400
 
-    try:
-        print("📧 Intentando enviar correo...")
-
-        msg = Message(
-            subject=f"Nuevo mensaje de {name}",
-            recipients=['infiwebspa.contactanos@gmail.com'],
-            body=f"""
-Has recibido un mensaje desde tu web:
-
+    msg = Message(
+        subject=f"Nuevo mensaje de {name}",
+        recipients=['infiwebspa.contactanos@gmail.com'],
+        body=f"""
 Nombre: {name}
 Correo: {email}
 
 Mensaje:
 {message_content}
 """
-        )
+    )
 
-        mail.send(msg)
+    # 🚀 LANZAMOS EL ENVÍO EN BACKGROUND
+    threading.Thread(target=send_email_async, args=(app, msg)).start()
 
-        print("✅ Correo enviado correctamente")
-
-        return jsonify({
-            "success": True,
-            "message": "Mensaje enviado correctamente"
-        }), 200
-
-    except Exception as e:
-        print(f"❌ Error enviando correo: {str(e)}")
-
-        return jsonify({
-            "success": False,
-            "message": "Error al enviar correo"
-        }), 500
+    # 🔥 RESPONDEMOS INMEDIATAMENTE (NO SE CUELGA)
+    return jsonify({
+        "success": True,
+        "message": "Mensaje enviado (procesando...)"
+    }), 200
 
 
 if __name__ == '__main__':
