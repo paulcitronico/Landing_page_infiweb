@@ -1,2 +1,4 @@
-Flask
-flask_mail
+flask
+flask-mail
+resend
+gunicorn
