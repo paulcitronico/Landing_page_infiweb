@@ -25,7 +25,7 @@ def contact():
         # Enviamos el correo usando la API de Resend
         params = {
             "from": "onboarding@resend.dev",
-            "to": "infiwebspa.contactanos@gmail.com", # El correo donde quieres recibir avisos
+            "to": "infiwebspa@gmail.com", # El correo donde quieres recibir avisos
             "subject": f"Nuevo mensaje web de {name}",
             "html": f"""
                 <h3>Nuevo mensaje de contacto</h3>
